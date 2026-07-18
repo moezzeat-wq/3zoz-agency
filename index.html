@@ -3,395 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3ZOZ Agency | معرض الخدمات التفاعلي</title>
-    <!-- استدعاء Tailwind CSS للتصميم العصري الفاتح -->
+    <title>3ZOZ TECH | حلول رقمية احترافية</title>
+    <!-- استدعاء Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Tajawal', sans-serif; }</style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .gold-gradient { background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%); }
+        .gold-border { border-image: linear-gradient(to right, #bf953f, #fcf6ba, #aa771c) 1; }
+        .gold-text {
+            background: linear-gradient(135deg, #aa771c 0%, #fcf6ba 50%, #bf953f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 selection:bg-sky-500 selection:text-white scroll-smooth">
+<body class="bg-[#fcfbf7] text-[#1a1a1a] selection:bg-[#bf953f] selection:text-white scroll-smooth">
 
-    <!-- الهيدر الشيك -->
-    <header class="border-b border-slate-200 bg-white/80 backdrop-blur sticky top-0 z-50 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-sky-600 flex items-center gap-2">✨ 3ZOZ Agency</h1>
-            <a href="https://t.me/Azoz_trading" target="_blank" class="bg-sky-600 hover:bg-sky-700 text-white font-bold px-5 py-2 rounded-xl transition shadow-md shadow-sky-600/20 text-sm">تواصل معنا مباشر</a>
-        </div>
+    <!-- الصفحة الرئيسية: الهيدر وقائمة التصفح -->
+    <header class="border-b border-amber-200/40 bg-white/90 backdrop-blur sticky top-0 z-50 shadow-sm text-center py-6">
+        <h1 class="text-3xl font-black tracking-wide text-[#1a1a1a]">3ZOZ TECH</h1>
+        <p class="text-[11px] font-bold uppercase tracking-widest text-[#aa771c] mt-1">Design • Bots • Systems</p>
+        
+        <!-- القائمة السريعة [ الرئيسية ] -->
+        <nav class="mt-4 flex flex-wrap justify-center gap-3 text-xs font-bold max-w-xl mx-auto px-4">
+            <a href="#web-section" class="border border-amber-200/60 bg-white px-3 py-1.5 rounded-lg hover:border-[#bf953f] transition">🌐 تصميم مواقع</a>
+            <a href="#bot-section" class="border border-amber-200/60 bg-white px-3 py-1.5 rounded-lg hover:border-[#bf953f] transition">🤖 بوتات تيليجرام</a>
+            <a href="#booking-section" class="border border-amber-200/60 bg-white px-3 py-1.5 rounded-lg hover:border-[#bf953f] transition">📅 نظام المواعيد</a>
+            <a href="#qr-section" class="border border-amber-200/60 bg-white px-3 py-1.5 rounded-lg hover:border-[#bf953f] transition">🍔 QR Menu</a>
+            <a href="#landing-section" class="border border-amber-200/60 bg-white px-3 py-1.5 rounded-lg hover:border-[#bf953f] transition">🚀 Landing Page</a>
+        </nav>
     </header>
 
-    <!-- المقدمة الجذابة والفلسفة -->
-    <section class="max-w-4xl mx-auto text-center px-4 py-12 md:py-16">
-        <span class="bg-sky-50 text-sky-600 text-xs font-bold px-3 py-1 rounded-full border border-sky-200">تصفح بروفة حية لكل خدمة</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4 text-slate-900">اختر الخدمة وجرّب الواجهة بنفسك 🚀</h2>
-        <p class="text-slate-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">بدل ما تسمع عن الخدمة، اضغط على الأزرار بالأسفل لتستعرض واجهة تفاعلية حية وتفاصيل مخصصة لكل نظام نصممه.</p>
-        
-        <!-- أزرار التنقل بين الواجهات الـ 5 (Tabs) -->
-        <div class="mt-8 flex flex-wrap justify-center gap-2 max-w-4xl mx-auto bg-white p-2 rounded-2xl shadow-sm border border-slate-200">
-            <button onclick="switchTab('web-tab')" id="btn-web-tab" class="tab-btn px-4 py-2.5 rounded-xl font-medium text-sm transition bg-sky-600 text-white shadow-sm">🌐 مواقع الشركات</button>
-            <button onclick="switchTab('booking-tab')" id="btn-booking-tab" class="tab-btn px-4 py-2.5 rounded-xl font-medium text-sm transition text-slate-600 hover:bg-slate-100">📅 نظام حجز المواعيد</button>
-            <button onclick="switchTab('bot-tab')" id="btn-bot-tab" class="tab-btn px-4 py-2.5 rounded-xl font-medium text-sm transition text-slate-600 hover:bg-slate-100">🤖 بوتات تيليجرام</button>
-            <button onclick="switchTab('landing-tab')" id="btn-landing-tab" class="tab-btn px-4 py-2.5 rounded-xl font-medium text-sm transition text-slate-600 hover:bg-slate-100">🚀 صفحات الهبوط</button>
-            <button onclick="switchTab('qr-tab')" id="btn-qr-tab" class="tab-btn px-4 py-2.5 rounded-xl font-medium text-sm transition text-slate-600 hover:bg-slate-100">🍔 قوائم QR Menu</button>
-        </div>
-    </section>
+    <div class="text-center py-8">
+        <span class="text-xs font-bold text-[#aa771c] bg-amber-50 px-3 py-1 rounded-full border border-amber-200/40">[ شاهد النماذج التفاعلية بالأسفل ]</span>
+    </div>
 
-    <!-- حاوية الواجهات التفاعلية الرئيسية -->
-    <main class="max-w-6xl mx-auto px-4 pb-20">
-        <!-- 1. واجهة تصميم مواقع الشركات -->
-        <div id="web-tab" class="tab-content bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
-            <div class="border-b border-slate-100 pb-4 mb-6 flex flex-wrap justify-between items-center gap-2">
-                <div>
-                    <h3 class="text-2xl font-bold text-slate-900">🌐 بروفة: موقع شركة احترافي</h3>
-                    <p class="text-slate-500 text-xs mt-1">💡 تفاصيل تفاعلية: نموذج حي لموقع تعريفي متكامل يعرض أعمال الشركة وخدماتها للزوار.</p>
-                </div>
-                <div class="bg-sky-50 text-sky-600 font-bold text-sm px-3 py-1 rounded-full border border-sky-100">سعر البيع: 3000 - 15000 جنيه</div>
-            </div>
+    <!-- الحاوية الرئيسية -->
+    <main class="max-w-4xl mx-auto px-6 space-y-16 pb-12">
 
-            <!-- نموذج حي للموقع التعريفي -->
-            <div class="border border-slate-200 rounded-2xl bg-slate-50 overflow-hidden shadow-inner p-4 md:p-6">
-                <div class="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-slate-200/60 mb-6">
-                    <span class="font-bold text-slate-800">🏗️ شركة العاصمة للمقاولات</span>
-                    <button class="bg-sky-600 text-white text-xs px-3 py-1.5 rounded-lg">اتصل بنا</button>
-                </div>
-                <div class="text-center py-8">
-                    <h4 class="text-2xl font-bold text-slate-900 mb-2">نبني مستقبلك بأحدث المعايير الهندسية</h4>
-                    <p class="text-slate-600 text-sm max-w-xl mx-auto mb-6">خبرة أكثر من 15 عاماً في تصميم وتنفيذ الأبراج السكنية والمشاريع التجارية الاحترافية.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-right">
-                        <div class="bg-white p-4 rounded-xl border border-slate-200">
-                            <span class="text-xl">📐</span>
-                            <h5 class="font-bold text-sm mt-1 mb-1">تصميم معماري</h5>
-                            <p class="text-slate-500 text-xs">مخططات هندسية دقيقة ومبتكرة.</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl border border-slate-200">
-                            <span class="text-xl">🔨</span>
-                            <h5 class="font-bold text-sm mt-1 mb-1">إشراف وتنفيذ</h5>
-                            <p class="text-slate-500 text-xs">إدارة كاملة للموقع وتسليم على المفتاح.</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl border border-slate-200">
-                            <span class="text-xl">🏢</span>
-                            <h5 class="font-bold text-sm mt-1 mb-1">تطوير عقاري</h5>
-                            <p class="text-slate-500 text-xs">فرص استثمارية بعوائد مضمونة.</p>
-                        </div>
-                    </div>
-                </div>
+        <!-- 1️⃣ قسم تصميم مواقع الشركات -->
+        <section id="web-section" class="bg-white p-6 rounded-3xl border border-amber-200/30 shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-2xl">🌐</span>
+                <h3 class="text-xl font-bold text-[#1a1a1a]">تصميم مواقع</h3>
             </div>
             
-            <div class="mt-6 border-t border-slate-100 pt-4 flex justify-end">
-                <a href="https://t.me/Azoz_trading" target="_blank" class="bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold px-6 py-3 rounded-xl transition">اطلب موقعاً لشركتك الآن 💬</a>
-            </div>
-        </div>
-
-        <!-- 2. واجهة نظام حجز المواعيد -->
-        <div id="booking-tab" class="tab-content hidden bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
-            <div class="border-b border-slate-100 pb-4 mb-6 flex flex-wrap justify-between items-center gap-2">
-                <div>
-                    <h3 class="text-2xl font-bold text-slate-900">📅 بروفة: نظام حجز المواعيد الذكي</h3>
-                    <p class="text-slate-500 text-xs mt-1">💡 تفاصيل تفاعلية: جرب كتابة اسمك واختيار الوقت، وسيتم إرسال الحجز تلقائياً إلى لوحة التحكم بالأسفل.</p>
-                </div>
-                <div class="bg-sky-50 text-sky-600 font-bold text-sm px-3 py-1 rounded-full border border-sky-100">سعر البيع: 3000 - 10000 جنيه</div>
+            <div class="mb-4">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-1">الوصف</h4>
+                <p class="text-slate-500 text-xs leading-relaxed">نصمم مواقع احترافية للشركات والمحلات والأفراد بسرعة وأداء عالي.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-                <!-- فورم الحجز للزبون -->
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-                    <h4 class="font-bold text-slate-800 mb-3 flex items-center gap-1">📋 نموذج الحجز للعملاء</h4>
-                    <form id="appointmentForm" class="space-y-3">
-                        <input type="text" id="clientName" required class="w-full bg-white border border-slate-200 rounded-lg p-2 text-sm focus:outline-none focus:border-sky-500" placeholder="اسم العميل">
-                        <select id="serviceType" class="w-full bg-white border border-slate-200 rounded-lg p-2 text-sm focus:outline-none focus:border-sky-500">
-                            <option>عيادة طبية تخصصية</option>
-                            <option>صالون حلاقة وتجميل</option>
-                            <option>مركز تدريب رياضي / جيم</option>
-                        </select>
-                        <div class="grid grid-cols-2 gap-3">
-                            <input type="date" id="appDate" required class="w-full bg-white border border-slate-200 rounded-lg p-2 text-sm focus:outline-none focus:border-sky-500">
-                            <input type="time" id="appTime" required class="w-full bg-white border border-slate-200 rounded-lg p-2 text-sm focus:outline-none focus:border-sky-500">
-                        </div>
-                        <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 rounded-lg text-sm transition shadow-sm">تأكيد الحجز الفوري</button>
-                    </form>
-                    <div id="successMsg" class="hidden mt-3 text-center text-emerald-600 text-xs font-bold bg-emerald-50 p-2 rounded border border-emerald-200">تمت المحاكاة بنجاح وإرسال الموعد للأدمن!</div>
+            <div class="mb-6">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-2">الخدمات المتاحة</h4>
+                <div class="flex flex-wrap gap-2 text-[11px] font-medium text-slate-600">
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">موقع شركة</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">موقع شخصي</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">متجر إلكتروني</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">موقع مطعم</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">صفحة هبوط</span>
                 </div>
+            </div>
 
-                <!-- لوحة التحكم للأدمن -->
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-                    <h4 class="font-bold text-sky-600 mb-3 flex justify-between items-center text-sm">
-                        <span>🛠️ لوحة تحكم المدير</span>
-                        <span class="text-[10px] bg-slate-200 text-slate-600 px-1.5 py-0.5 rounded">صلاحية أدمن</span>
-                    </h4>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-right text-xs">
-                            <thead>
-                                <tr class="border-b border-slate-200 text-slate-500">
-                                    <th class="pb-2">العميل</th>
-                                    <th class="pb-2">النشاط</th>
-                                    <th class="pb-2">الوقت</th>
-                                    <th class="pb-2 text-center">إجراء</th>
-                                </tr>
-                            </thead>
-                            <tbody id="appointmentsTable" class="text-slate-700 divide-y divide-slate-200">
-                                <tr id="row-1">
-                                    <td class="py-2.5 font-medium">أحمد علي</td>
-                                    <td class="py-2.5">عيادة طبية</td>
-                                    <td class="py-2.5 text-[11px] text-slate-500">07-20 | 14:00</td>
-                                    <td class="py-2.5 text-center"><button onclick="deleteRow('row-1')" class="text-red-500 font-bold bg-red-50 px-1.5 py-0.5 rounded text-[10px]">حذف</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <!-- نموذج مصغر تفاعلي للموقع -->
+            <div class="border border-amber-200/40 rounded-2xl bg-[#fcfbf7] p-6 text-center max-w-md mx-auto relative overflow-hidden shadow-inner">
+                <div class="absolute top-0 left-0 right-0 h-1 gold-gradient"></div>
+                <h4 class="text-lg font-black text-[#1a1a1a] mb-1">3ZOZ TECH</h4>
+                <p class="text-[10px] font-medium text-slate-400 mb-4">حلول رقمية احترافية للمستقبل</p>
+                
+                <div class="flex justify-center gap-3 text-xs font-bold">
+                    <button onclick="alert('سيتم توجيهك الآن لطلب هذا المشروع عبر التليجرام الخاص بنا')" class="gold-gradient text-[#1a1a1a] px-4 py-2 rounded-lg shadow-sm">اطلب الآن</button>
+                    <button onclick="alert('معرض أعمالنا قيد التحديث، تواصل معنا لمشاهدة آخر المشاريع الحية')" class="bg-white border border-slate-300 px-4 py-2 rounded-lg shadow-sm">أعمالنا</button>
+                </div>
+            </div>
+
+            <!-- الزر التفاعلي لفتح الشاشة أو الطلب -->
+            <div class="mt-6 text-center border-t border-slate-100 pt-4">
+                <a href="https://t.me/Azoz_trading" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#aa771c] hover:underline">
+                    🔍 مشاهدة النسخة الكاملة عبر الدعم المباشر ←
+                </a>
+            </div>
+        </section>
+        <!-- 2️⃣ قسم بوتات تيليجرام -->
+        <section id="bot-section" class="bg-white p-6 rounded-3xl border border-amber-200/30 shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-2xl">🤖</span>
+                <h3 class="text-xl font-bold text-[#1a1a1a]">بوتات تيليجرام</h3>
+            </div>
+            
+            <div class="mb-4">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-1">الوصف</h4>
+                <p class="text-slate-500 text-xs leading-relaxed">نطور بوتات مخصصة لإدارة العملاء والقنوات والخدمات تلقائياً.</p>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-2">أنواع البوتات</h4>
+                <div class="flex flex-wrap gap-2 text-[11px] font-medium text-slate-600">
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">بوت اشتراكات</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">بوت استقبال طلبات</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">بوت دعم فني</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">بوت متجر الرقمي</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">بوت توصيات ومؤشرات</span>
+                </div>
+            </div>
+
+            <!-- نموذج مصغر: محاكاة حية لبوت التليجرام -->
+            <div class="border border-slate-200 rounded-2xl bg-slate-50 overflow-hidden max-w-sm mx-auto shadow-sm">
+                <div class="bg-[#1a1a1a] p-3 text-white text-xs font-bold flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                    🤖 3ZOZ TECH Bot
+                </div>
+                <div id="botChatArea" class="p-4 h-36 overflow-y-auto space-y-2 text-[11px] flex flex-col justify-end">
+                    <div class="bg-white border border-slate-200 p-2 rounded-xl rounded-tr-none self-start max-w-[85%] shadow-sm">
+                        🤖 Welcome! أهلاً بك في البوت التجريبي لـ 3ZOZ TECH. اختر من القائمة بالأسفل:
                     </div>
                 </div>
-            </div>
-
-            <div class="mt-6 border-t border-slate-100 pt-4 flex justify-end">
-                <a href="https://t.me/Azoz_trading" target="_blank" class="bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold px-6 py-3 rounded-xl transition">اطلب سيستم حجز متكامل 💬</a>
-            </div>
-        </div>
-        <!-- 3. واجهة برمجة بوتات تيليجرام -->
-        <div id="bot-tab" class="tab-content hidden bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
-            <div class="border-b border-slate-100 pb-4 mb-6 flex flex-wrap justify-between items-center gap-2">
-                <div>
-                    <h3 class="text-2xl font-bold text-slate-900">🤖 بروفة: أتمتة وبوتات تيليجرام الذكية</h3>
-                    <p class="text-slate-500 text-xs mt-1">💡 تفاصيل تفاعلية: محاكاة حية لشاشة شات تيليجرام. اضغط على أزرار البوت بالأسفل لتجربة الرد التلقائي الفوري.</p>
+                <!-- أزرار البوت التفاعلية الحية -->
+                <div class="p-2 bg-slate-200/50 border-t border-slate-200 grid grid-cols-2 gap-1.5 text-center text-[10px] font-bold">
+                    <button onclick="triggerBotReply('1️⃣ الخدمات', 'نوفر برمجيات متكاملة: مواقع، بوتات ذكية، سستم حجز، ومنيو رقمي فخم.')" class="bg-white border border-slate-300 py-1.5 rounded-lg active:bg-slate-100 transition">1️⃣ الخدمات</button>
+                    <button onclick="triggerBotReply('2️⃣ الأسعار', 'أسعارنا تنافسية وتبدأ من 1000 جنيه فقط بحسب الميزات المطلوبة لمشروعك.')" class="bg-white border border-slate-300 py-1.5 rounded-lg active:bg-slate-100 transition">2️⃣ الأسعار</button>
+                    <button onclick="triggerBotReply('3️⃣ الدعم', 'فريق الدعم الفني متواجد لمساعدتك وحل استفساراتك البرمجية مباشرة.')" class="bg-white border border-slate-300 py-1.5 rounded-lg active:bg-slate-100 transition">3️⃣ الدعم</button>
+                    <button onclick="triggerBotReply('4️⃣ تواصل معنا', 'يمكنك الانتقال فوراً للمطور والتحدث معه عبر معرف التليجرام: @Azoz_trading')" class="bg-white border border-slate-300 py-1.5 rounded-lg active:bg-slate-100 transition">4️⃣ تواصل معنا</button>
                 </div>
-                <div class="bg-sky-50 text-sky-600 font-bold text-sm px-3 py-1 rounded-full border border-sky-100">سعر البيع: 1000 - 10000 جنيه</div>
             </div>
 
-            <!-- محاكاة شات التليجرام -->
-            <div class="max-w-md mx-auto border border-slate-200 rounded-2xl bg-slate-100 overflow-hidden shadow-sm">
-                <!-- هيدر الشات -->
-                <div class="bg-sky-600 p-3 flex items-center gap-3 text-white">
-                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold">🤖</div>
+            <div class="mt-6 text-center border-t border-slate-100 pt-4">
+                <a href="https://t.me/Azoz_trading" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#aa771c] hover:underline">
+                    🔍 تجربة واطلب البوت الكامل الآن ←
+                </a>
+            </div>
+        </section>
+
+        <!-- 3️⃣ قسم نظام حجز المواعيد -->
+        <section id="booking-section" class="bg-white p-6 rounded-3xl border border-amber-200/30 shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-2xl">📅</span>
+                <h3 class="text-xl font-bold text-[#1a1a1a]">نظام حجز المواعيد</h3>
+            </div>
+            
+            <div class="mb-4">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-1">الوصف</h4>
+                <p class="text-slate-500 text-xs leading-relaxed">نظام حجز ذكي ومحترق مناسب للعيادات، الصالونات، الجيم، ومراكز التدريب.</p>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-2">المميزات الرئيسية</h4>
+                <div class="flex flex-wrap gap-2 text-[11px] font-medium text-slate-600">
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ اختيار التاريخ</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ اختيار الوقت بدقة</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ تأكيد الحجز الفوري</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ لوحة تحكم إدارية</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ ربط إشعارات التنبيه</span>
+                </div>
+            </div>
+
+            <!-- نموذج مصغر: استمارة حجز فعلية يجربها العميل -->
+            <div class="border border-amber-200/40 rounded-2xl bg-[#fcfbf7] p-5 max-w-sm mx-auto shadow-inner">
+                <h4 class="text-center font-bold text-xs text-[#1a1a1a] mb-3">📅 احجز موعدك الآن (بروفة حية)</h4>
+                
+                <form id="liveBookingForm" class="space-y-3 text-xs text-right">
                     <div>
-                        <h4 class="font-bold text-sm">بوت الخدمات الذكي (3ZOZ Bot)</h4>
-                        <span class="text-[10px] text-sky-100 block">يقوم بالرد تلقائياً • متصل لايف</span>
+                        <label class="block text-slate-600 mb-1">الاسم</label>
+                        <input type="text" id="bName" required class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-800 focus:outline-none focus:border-[#bf953f]" placeholder="محمد أحمد">
                     </div>
-                </div>
-                <!-- منطقة الرسائل -->
-                <div class="p-4 h-48 overflow-y-auto space-y-3 text-xs flex flex-col justify-end" id="chatArea">
-                    <div class="bg-white p-2.5 rounded-2xl rounded-tr-none max-w-[80%] shadow-sm self-start border border-slate-200/60">
-                        مرحباً بك في بوت الأتمتة والخدمات! اضغط على أي زر بالأسفل لاستعراض القوائم المتاحة فوراً. 👇
+                    <div>
+                        <label class="block text-slate-600 mb-1">الهاتف</label>
+                        <input type="tel" id="bPhone" required class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-800 focus:outline-none focus:border-[#bf953f]" placeholder="01xxxxxxxxx">
                     </div>
-                </div>
-                <!-- أزرار البوت التفاعلية -->
-                <div class="p-3 bg-slate-200/60 border-t border-slate-200 grid grid-cols-2 gap-2 text-center text-xs">
-                    <button onclick="simulateBot('🛍️ المأكولات والمتاجر', 'أهلاً بك! يمكنك تصفح المنتجات وإضافتها للسلة والدفع المباشر من داخل البوت.')" class="bg-white hover:bg-slate-50 border border-slate-300 rounded-lg py-2 font-medium shadow-sm">🛍️ خدمات المتاجر</button>
-                    <button onclick="simulateBot('🔑 تفعيل الاشتراكات', 'تم التحقق من الكود بنجاح! تم تفعيل اشتراكك وتحديث حسابك للمستوى الممتاز.')" class="bg-white hover:bg-slate-50 border border-slate-300 rounded-lg py-2 font-medium shadow-sm">🔑 تفعيل الاشتراكات</button>
-                    <button onclick="simulateBot('📈 مؤشرات التداول', 'البوت متصل بالمنصة لايف، سيتم إرسال تنبيهات المؤشرات فور حدوث أي حركة بالأسواق.')" class="bg-white hover:bg-slate-50 border border-slate-300 rounded-lg py-2 font-medium shadow-sm">📈 مؤشرات التداول</button>
-                    <button onclick="simulateBot('📞 الدعم الفني', 'تم إرسال طلبك لفريق الدعم، سيقوم أحد عملائنا بالتواصل معك في غضون دقائق.')" class="bg-white hover:bg-slate-50 border border-slate-300 rounded-lg py-2 font-medium shadow-sm">📞 الدعم الفني</button>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-slate-600 mb-1">التاريخ</label>
+                            <input type="text" id="bDate" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-center text-slate-800 focus:outline-none" value="2026-07-20">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">الوقت</label>
+                            <input type="text" id="bTime" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-center text-slate-800 focus:outline-none" value="05:00 PM">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full gold-gradient text-[#1a1a1a] font-bold py-2 rounded-lg text-xs shadow-sm transition">تأكيد الحجز 🌟</button>
+                </form>
+                <div id="bookingAlert" class="hidden mt-3 text-center text-emerald-700 text-[11px] font-bold bg-emerald-50 p-2 rounded border border-emerald-200">
+                    🎉 ممتاز! تم تأكيد الحجز افتراضياً بنجاح، وتحديث لوحة الإدارة بالخلفية!
                 </div>
             </div>
 
-            <div class="mt-6 border-t border-slate-100 pt-4 flex justify-end">
-                <a href="https://t.me/Azoz_trading" target="_blank" class="bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold px-6 py-3 rounded-xl transition">برمج بوت تليجرام خاص بك الآن 💬</a>
+            <div class="mt-6 text-center border-t border-slate-100 pt-4">
+                <a href="https://t.me/Azoz_trading" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#aa771c] hover:underline">
+                    🔍 تجربة النسخة الكاملة للنظام ولوحة التحكم ←
+                </a>
             </div>
-        </div>
+        </section>
+        <!-- 4️⃣ قسم قوائم الـ QR Menu -->
+        <section id="qr-section" class="bg-white p-6 rounded-3xl border border-amber-200/30 shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-2xl">🍔</span>
+                <h3 class="text-xl font-bold text-[#1a1a1a]">🍔 QR Menu</h3>
+            </div>
+            
+            <div class="mb-4">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-1">الوصف</h4>
+                <p class="text-slate-500 text-xs leading-relaxed">منيو رقمي وتفاعلي متكامل مخصص للمطاعم والكافيهات، يفتح مباشرة عبر الكود وبدون تطبيق.</p>
+            </div>
 
-        <!-- 4. واجهة صفحات الهبوط (Landing Pages) -->
-        <div id="landing-tab" class="tab-content hidden bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
-            <div class="border-b border-slate-100 pb-4 mb-6 flex flex-wrap justify-between items-center gap-2">
-                <div>
-                    <h3 class="text-2xl font-bold text-slate-900">🚀 بروفة: صفحة هبوط سريعة للمبيعات</h3>
-                    <p class="text-slate-500 text-xs mt-1">💡 تفاصيل تفاعلية: نموذج لصفحة تركز بالكامل على إقناع زائر الإعلان الممولة باتخاذ قرار الشراء السريع.</p>
+            <div class="mb-6">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-2">المميزات والخصائص</h4>
+                <div class="flex flex-wrap gap-2 text-[11px] font-medium text-slate-600">
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ توليد QR Code تلقائي</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ دعم صور الأطباق عالية الجودة</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ الأسعار والتصنيفات</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ لوحة تحكم لتعديل الوجبات فورياً</span>
                 </div>
-                <div class="bg-sky-50 text-sky-600 font-bold text-sm px-3 py-1 rounded-full border border-sky-100">سعر البيع: 1000 - 5000 جنيه</div>
             </div>
 
-            <!-- نموذج حي لصفحة الهبوط داخل مستطيل -->
-            <div class="border border-slate-200 rounded-2xl bg-gradient-to-b from-slate-50 to-white overflow-hidden p-6 text-center max-w-xl mx-auto shadow-inner">
-                <span class="bg-red-50 text-red-500 text-[10px] font-bold px-2 py-0.5 rounded border border-red-200">🔥 عرض محدود ينتهي قريباً</span>
-                <h4 class="text-xl font-bold text-slate-900 mt-2 mb-2">امتلك حقيبة التداول الشاملة بخصم 50%!</h4>
-                <p class="text-slate-600 text-xs mb-4 max-w-sm mx-auto">احصل على كورس التداول المكثف، بالإضافة إلى إمكانية الوصول الحصري لمؤشراتنا وقنوات التنبيه الفورية.</p>
+            <!-- نموذج مصغر: منيو مطعم برجر وبيتزا تفاعلي -->
+            <div class="border border-amber-200/40 rounded-2xl bg-[#fcfbf7] p-4 max-w-sm mx-auto shadow-inner text-center">
+                <h4 class="font-black text-sm text-slate-800 mb-3 border-b border-slate-200 pb-2">🍔 3ZOZ Gourmet Menu</h4>
                 
-                <!-- عداد وهمي ومميزات -->
-                <div class="bg-white p-3 rounded-xl border border-slate-200 text-right space-y-2 text-xs text-slate-700 max-w-xs mx-auto mb-4">
-                    <p class="flex items-center gap-1.5 text-emerald-600 font-bold">✓ كورس تفصيلي من الصفر للاحتراف.</p>
-                    <p class="flex items-center gap-1.5 text-emerald-600 font-bold">✓ تنبيهات ذكية وتوصيات مباشرة.</p>
+                <div class="space-y-3 text-right">
+                    <!-- وجبة 1 -->
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center shadow-sm">
+                        <div>
+                            <h5 class="font-bold text-xs text-slate-900">🍔 Burger Classic</h5>
+                            <p class="text-[10px] text-slate-400 mt-0.5">لحم مشوي فاخر مع الجبن السائل</p>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-sky-600 font-bold text-xs mb-1">120 جنيه</span>
+                            <button onclick="alert('تمت إضافة البرجر بنجاح! سيتم إرسال طلبك للمطبخ الفوري في النظام الكامل')" class="gold-gradient text-[#1a1a1a] font-bold text-[9px] px-2 py-1 rounded shadow-sm">اطلب الآن</button>
+                        </div>
+                    </div>
+
+                    <!-- وجبة 2 -->
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center shadow-sm">
+                        <div>
+                            <h5 class="font-bold text-xs text-slate-900">🍕 Pizza Supreme</h5>
+                            <p class="text-[10px] text-slate-400 mt-0.5">عجينة إيطالية غنية بالموزاريلا والخضار</p>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-sky-600 font-bold text-xs mb-1">180 جنيه</span>
+                            <button onclick="alert('تمت إضافة البيتزا بنجاح! سيتم إرسال طلبك للمطبخ الفوري في النظام الكامل')" class="gold-gradient text-[#1a1a1a] font-bold text-[9px] px-2 py-1 rounded shadow-sm">اطلب الآن</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 text-center border-t border-slate-100 pt-4">
+                <a href="https://t.me/Azoz_trading" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#aa771c] hover:underline">
+                    🔍 مشاهدة وتجربة المنيو الكامل بميزات متطورة ←
+                </a>
+            </div>
+        </section>
+
+        <!-- 5️⃣ قسم صفحات الهبوط (Landing Pages) -->
+        <section id="landing-section" class="bg-white p-6 rounded-3xl border border-amber-200/30 shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-2xl">🚀</span>
+                <h3 class="text-xl font-bold text-[#1a1a1a]">Landing Page</h3>
+            </div>
+            
+            <div class="mb-4">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-1">الوصف</h4>
+                <p class="text-slate-500 text-xs leading-relaxed">صفحة واحدة مركزة ومخصصة للحملات الإعلانية لزيادة نسبة التحويلات والمبيعات للعملاء.</p>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="text-xs font-bold text-[#aa771c] mb-2">المميزات الفنية</h4>
+                <div class="flex flex-wrap gap-2 text-[11px] font-medium text-slate-600">
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ نموذج تواصل سريع</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ أزرار واتساب وتليجرام مباشرة</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ سرعة تحميل فائقة وكود نظيف</span>
+                    <span class="bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">✓ تصميم متجاوب مع الهواتف</span>
+                </div>
+            </div>
+
+            <!-- نموذج مصغر لصفحة هبوط مبيعات -->
+            <div class="border border-amber-200/40 rounded-2xl bg-gradient-to-b from-[#fcfbf7] to-white p-6 max-w-sm mx-auto shadow-inner text-center">
+                <h4 class="text-base font-black text-red-600 mb-2">🔥 ضاعف مبيعاتك وأرباحك الرقمية الآن</h4>
+                <p class="text-[11px] text-slate-500 mb-4 leading-relaxed">احصل على نسختك الحصرية من مؤشرات التداول الذكية بخصم فريد متاح اليوم فقط.</p>
+                
+                <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1.5 text-right text-[10px] font-bold text-emerald-700 max-w-[240px] mx-auto mb-4">
+                    <p>✔ تصميم احترافي وعصري بالكامل</p>
+                    <p>✔ دعم فني متكامل وتهيئة كاملة</p>
                 </div>
                 
-                <button class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-6 py-2.5 rounded-lg transition shadow-sm animate-pulse">اشترك الآن واحجز مقعدك 🛒</button>
-            </div>
-
-            <div class="mt-6 border-t border-slate-100 pt-4 flex justify-end">
-                <a href="https://t.me/Azoz_trading" target="_blank" class="bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold px-6 py-3 rounded-xl transition">اطلب صفحة هبوط لإعلانك 💬</a>
-            </div>
-        </div>
-
-        <!-- 5. واجهة قوائم الـ QR Menu -->
-        <div id="qr-tab" class="tab-content hidden bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
-            <div class="border-b border-slate-100 pb-4 mb-6 flex flex-wrap justify-between items-center gap-2">
-                <div>
-                    <h3 class="text-2xl font-bold text-slate-900">🍔 بروفة: منيو رقمي تفاعلي (QR Menu)</h3>
-                    <p class="text-slate-500 text-xs mt-1">💡 تفاصيل تفاعلية: نموذج للمنيو الذي يفتحه زبون المطعم بالموبايل. اضغط على الأقسام بالداخل للتنقل المباشر.</p>
-                </div>
-                <div class="bg-sky-50 text-sky-600 font-bold text-sm px-3 py-1 rounded-full border border-sky-100">سعر البيع: 2000 - 7000 جنيه</div>
-            </div>
-
-            <!-- محاكاة المنيو الإلكتروني للمطاعم -->
-            <div class="max-w-md mx-auto border border-slate-200 rounded-3xl bg-white overflow-hidden shadow-sm p-4">
-                <div class="text-center pb-3 border-b border-slate-100">
-                    <h4 class="font-bold text-slate-900 text-base">🍔 مطعم وكافيه برجر آند فريش</h4>
-                    <p class="text-[11px] text-slate-400">امسح الكود • اختر وجبتك • استمتع بالطعم</p>
-                </div>
-                
-                <!-- أزرار الأقسام التفاعلية بالمنيو -->
-                <div class="flex justify-center gap-2 my-3 text-[11px]">
-                    <button onclick="switchMenuCategory('burgers')" id="btn-cat-burgers" class="menu-cat-btn bg-amber-500 text-white px-3 py-1 rounded-full font-medium">🍔 البرجر</button>
-                    <button onclick="switchMenuCategory('appetizers')" id="btn-cat-appetizers" class="menu-cat-btn bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">🍟 مقبلات</button>
-                    <button onclick="switchMenuCategory('drinks')" id="btn-cat-drinks" class="menu-cat-btn bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">🥤 مشروبات</button>
-                </div>
-
-                <!-- محتوى وجبات المنيو -->
-                <div class="space-y-2 h-40 overflow-y-auto pr-1">
-                    <!-- وجبات البرجر -->
-                    <div id="cat-burgers" class="menu-items space-y-2">
-                        <div class="bg-slate-50 p-2.5 rounded-xl flex justify-between items-center border border-slate-100">
-                            <div><h5 class="font-bold text-xs text-slate-800">برجر تشيز كلاسيك</h5><p class="text-[10px] text-slate-500">لحم مشوي، جبنة شيدر، صوص سري</p></div>
-                            <span class="text-sky-600 font-bold text-xs">120 جنيه</span>
-                        </div>
-                        <div class="bg-slate-50 p-2.5 rounded-xl flex justify-between items-center border border-slate-100">
-                            <div><h5 class="font-bold text-xs text-slate-800">برجر باربكيو بيكون</h5><p class="text-[10px] text-slate-500">لحم، حلقات بصل، صوص باربكيو مدخن</p></div>
-                            <span class="text-sky-600 font-bold text-xs">145 جنيه</span>
-                        </div>
-                    </div>
-                    <!-- وجبات المقبلات -->
-                    <div id="cat-appetizers" class="menu-items hidden space-y-2">
-                        <div class="bg-slate-50 p-2.5 rounded-xl flex justify-between items-center border border-slate-100">
-                            <div><h5 class="font-bold text-xs text-slate-800">بطاطس مقرمشة عملاقة</h5><p class="text-[10px] text-slate-500">أصابع بطاطس متبلة ومقرمشة</p></div>
-                            <span class="text-sky-600 font-bold text-xs">45 جنيه</span>
-                        </div>
-                        <div class="bg-slate-50 p-2.5 rounded-xl flex justify-between items-center border border-slate-100">
-                            <div><h5 class="font-bold text-xs text-slate-800">أصابع موزاريللا مقلية</h5><p class="text-[10px] text-slate-500">4 قطع أصابع مغطاة بالبقسماط</p></div>
-                            <span class="text-sky-600 font-bold text-xs">60 جنيه</span>
-                        </div>
-                    </div>
-                    <!-- المشروبات -->
-                    <div id="cat-drinks" class="menu-items hidden space-y-2">
-                        <div class="bg-slate-50 p-2.5 rounded-xl flex justify-between items-center border border-slate-100">
-                            <div><h5 class="font-bold text-xs text-slate-800">بيبسي / كولا بارد</h5><p class="text-[10px] text-slate-500">علبة مثلجة ومنعشة</p></div>
-                            <span class="text-sky-600 font-bold text-xs">20 جنيه</span>
-                        </div>
-                    </div>
+                <div class="flex justify-center gap-2 max-w-[260px] mx-auto">
+                    <button onclick="alert('أهلاً بك! سيتم تحويلك لصفحة الدفع الفوري الفعلي')" class="w-1/2 gold-gradient text-[#1a1a1a] font-bold py-2 rounded-lg text-[10px] shadow-sm">ابدأ الآن 🛒</button>
+                    <a href="https://t.me/Azoz_trading" target="_blank" class="w-1/2 bg-slate-900 text-white text-center font-bold py-2 rounded-lg text-[10px] shadow-sm flex items-center justify-center gap-1">📞 تليجرام / واتساب</a>
                 </div>
             </div>
 
-            <div class="mt-6 border-t border-slate-100 pt-4 flex justify-end">
-                <a href="https://t.me/Azoz_trading" target="_blank" class="bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold px-6 py-3 rounded-xl transition">صمم منيو QR لمطعمك الآن 💬</a>
+            <div class="mt-6 text-center border-t border-slate-100 pt-4">
+                <a href="https://t.me/Azoz_trading" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#aa771c] hover:underline">
+                    🔍 عرض وتصفح الصفحة الكاملة والمزيد من القوالب ←
+                </a>
             </div>
-        </div>
-        </main>
+        </section>
+        <!-- 🛠️ الميزة الفخمة: لوحة تحكم وإدارة المشاريع بعد الشراء للعملاء -->
+        <section id="dashboard-section" class="bg-[#1a1a1a] p-6 rounded-3xl border border-amber-200/20 shadow-xl text-white">
+            <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🛠️</span>
+                    <h3 class="text-base font-bold gold-text">لوحة تحكم الإدارة الرقمية (للعملاء بعد الشراء)</h3>
+                </div>
+                <span class="text-[9px] bg-amber-500/15 text-[#fcf6ba] px-2 py-0.5 rounded-full border border-amber-500/30">نظام متكامل</span>
+            </div>
+            
+            <p class="text-slate-400 text-[11px] leading-relaxed mb-6">💡 يمنح هذا النظام لكل عميل بعد الشراء لوحة تحكم ذكية ومحمية لمتابعة وإدارة البوتات، المواقع، وقواعد البيانات بشكل فوري دون أي تعقيد.</p>
 
-    <!-- الفوتر النهائي للموقع متناسق مع الهوية الجديدة -->
-    <footer class="border-t border-slate-200 bg-white text-center py-8 text-slate-400 text-sm">
-        <p class="font-medium text-slate-600">© 2026 جميع الحقوق محفوظة لـ <a href="https://t.me/Azoz_trading" target="_blank" class="text-sky-600 hover:underline">3ZOZ Agency (@Azoz_trading)</a>.</p>
+            <!-- واجهة لوحة التحكم المصغرة -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center">
+                    <span class="text-slate-400 text-[10px] block mb-1">حالة السيرفر والـ Bot</span>
+                    <span class="text-emerald-400 text-xs font-bold flex items-center justify-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span> متصل لايف (Railway)
+                    </span>
+                </div>
+                <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center">
+                    <span class="text-slate-400 text-[10px] block mb-1">إجمالي الحجوزات والطلبات</span>
+                    <span class="text-white text-base font-black" id="dashCounter">1,248 طلب</span>
+                </div>
+                <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center">
+                    <span class="text-slate-400 text-[10px] block mb-1">تحديث البيانات والمؤشر</span>
+                    <button onclick="alert('تم مزامنة وتحديث قاعدة البيانات والمؤشرات بنجاح فورياً!')" class="gold-gradient text-[#1a1a1a] font-bold text-[9px] px-2 py-1 rounded mt-0.5 shadow-sm">تحديث فوري 🔄</button>
+                </div>
+            </div>
+
+            <div class="text-center text-[10px] text-slate-500">
+                🔒 يتم ربط لوحة التحكم بقاعدة بيانات مشفرة وسيرفر خاص لكل مشروع يتم تسليمه.
+            </div>
+        </section>
+
+        <!-- ⭐ قسم إحصائيات الوكالة الفخمة في أسفل الموقع -->
+        <section class="border-t border-amber-200/40 pt-12 text-center">
+            <div class="flex justify-center gap-1 text-amber-500 text-sm mb-4">⭐⭐⭐⭐确定</div>
+            
+            <div class="grid grid-cols-3 gap-4 max-w-md mx-auto mb-8 text-center">
+                <div class="bg-white p-3 rounded-xl border border-slate-200/60 shadow-sm">
+                    <h5 class="text-lg font-black text-[#1a1a1a]">+150</h5>
+                    <p class="text-[10px] text-slate-400 font-medium">مشروع ناجح</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-slate-200/60 shadow-sm">
+                    <h5 class="text-lg font-black text-[#1a1a1a]">+90</h5>
+                    <p class="text-[10px] text-slate-400 font-medium">عميل سعيد</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-slate-200/60 shadow-sm">
+                    <h5 class="text-lg font-black text-[#1a1a1a]">+5</h5>
+                    <p class="text-[10px] text-slate-400 font-medium">خدمات ذكية</p>
+                </div>
+            </div>
+
+            <!-- الزر النهائي الكبير للطلب -->
+            <a href="https://t.me/Azoz_trading" target="_blank" class="inline-block gold-gradient text-[#1a1a1a] font-black px-8 py-3.5 rounded-xl text-xs shadow-lg shadow-amber-500/20 hover:scale-[1.02] transition duration-200">
+                🚀 اطلب مشروعك المخصص الآن وتحدث مع المطور
+            </a>
+        </section>
+
+    </main>
+
+    <!-- الفوتر الفخم المقفل بلون كلاسيكي راقي جداً متناسق مع الجولد -->
+    <footer class="border-t border-amber-200/20 bg-[#16191f] text-center py-6 text-slate-500 text-[11px]">
+        <p class="font-medium">© 2026 جميع الحقوق محفوظة لـ <a href="https://t.me/Azoz_trading" target="_blank" class="gold-text font-bold hover:underline">3ZOZ TECH (@Azoz_trading)</a>.</p>
     </footer>
 
-    <!-- أكواد الجافاسكريبت التشغيلية الذكية للنظام التفاعلي بالكامل -->
+    <!-- الأكواد والبرمجيات المسؤولة عن تشغيل التفاعلات والـ Demos لايف -->
     <script>
-        // 1. برمجة التنقل بين الخدمات الخمسة (Tabs Switcher)
-        function switchTab(tabId) {
-            // إخفاء جميع الواجهات
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.add('hidden'));
+        // 1. تشغيل ردود بوت التليجرام التفاعلية
+        function triggerBotReply(userMsg, botReply) {
+            const chatArea = document.getElementById('botChatArea');
             
-            // إظهار الواجهة المختارة
-            document.getElementById(tabId).classList.remove('hidden');
+            // رسالة المستخدم
+            const userBox = document.createElement('div');
+            userBox.className = "bg-amber-100 border border-amber-200 p-2 rounded-xl rounded-tl-none self-end max-w-[85%] shadow-sm text-slate-800 text-right";
+            userBox.innerText = userMsg;
+            chatArea.appendChild(userBox);
             
-            // إعادة تعيين ستايل الأزرار كأنها غير نشطة
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-sky-600', 'text-white', 'shadow-sm');
-                btn.classList.add('text-slate-600', 'hover:bg-slate-100');
-            });
-            
-            // تنشيط الزرار الذي تم الضغط عليه
-            const activeBtn = document.getElementById('btn-' + tabId);
-            if(activeBtn) {
-                activeBtn.classList.remove('text-slate-600', 'hover:bg-slate-100');
-                activeBtn.classList.add('bg-sky-600', 'text-white', 'shadow-sm');
-            }
+            // رد البوت التلقائي الفوري بعد ثوانٍ بسيطة
+            setTimeout(() => {
+                const botBox = document.createElement('div');
+                botBox.className = "bg-white border border-slate-200 p-2 rounded-xl rounded-tr-none self-start max-w-[85%] shadow-sm text-slate-700 text-right transition-all transform scale-95";
+                botBox.innerText = "🤖 " + botReply;
+                chatArea.appendChild(botBox);
+                // سكرول تلقائي لأسفل
+                chatArea.scrollTop = chatArea.scrollHeight;
+            }, 300);
         }
 
-        // 2. برمجة نظام حجز المواعيد (الواجهة الثانية)
-        let appointmentCounter = 2;
-        const appointmentForm = document.getElementById('appointmentForm');
-        
-        if (appointmentForm) {
-            appointmentForm.addEventListener('submit', function(e) {
+        // 2. تشغيل استمارة حجز المواعيد الحية
+        const liveBookingForm = document.getElementById('liveBookingForm');
+        if (liveBookingForm) {
+            liveBookingForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                const name = document.getElementById('clientName').value;
-                const service = document.getElementById('serviceType').value;
-                const date = document.getElementById('appDate').value;
-                const time = document.getElementById('appTime').value;
+                // إظهار رسالة النجاح الافتراضية
+                const alertBox = document.getElementById('bookingAlert');
+                alertBox.classList.remove('hidden');
                 
-                const tbody = document.getElementById('appointmentsTable');
-                const rowId = 'row-' + appointmentCounter;
-                const tr = document.createElement('tr');
-                tr.id = rowId;
-                tr.className = "divide-y divide-slate-200 text-slate-700";
-                tr.innerHTML = `
-                    <td class="py-2.5 font-medium">${name}</td>
-                    <td class="py-2.5">${service}</td>
-                    <td class="py-2.5 text-[11px] text-slate-500">${date.substring(5)} | ${time}</td>
-                    <td class="py-2.5 text-center"><button onclick="deleteRow('${rowId}')" class="text-red-500 font-bold bg-red-50 px-1.5 py-0.5 rounded text-[10px]">حذف</button></td>
-                `;
+                // تحديث العداد في لوحة التحكم بشكل تفاعلي مبهر لإثبات ربط قاعدة البيانات
+                const dashCounter = document.getElementById('dashCounter');
+                if(dashCounter) {
+                    dashCounter.innerText = "1,249 طلب";
+                    dashCounter.className = "text-emerald-400 text-base font-black transition-all";
+                }
                 
-                tbody.appendChild(tr);
-                appointmentCounter++;
-                
-                appointmentForm.reset();
-                const success = document.getElementById('successMsg');
-                success.classList.remove('hidden');
-                setTimeout(() => success.classList.add('hidden'), 3500);
+                // إعادة تعيين الفورم وإخفاء التنبيه بعد فترة
+                liveBookingForm.reset();
+                setTimeout(() => alertBox.classList.add('hidden'), 4000);
             });
-        }
-
-        function deleteRow(id) {
-            const row = document.getElementById(id);
-            if(row) row.remove();
-        }
-
-        // 3. برمجة محاكاة شات التليجرام للبوت (الواجهة الثالثة)
-        function simulateBot(buttonName, replyText) {
-            const chatArea = document.getElementById('chatArea');
-            
-            // إضافة رسالة المستخدم (الزر الذي ضغط عليه)
-            const userDiv = document.createElement('div');
-            userDiv.className = "bg-sky-100 p-2 rounded-2xl rounded-tl-none max-w-[80%] shadow-sm self-end text-sky-900 font-medium border border-sky-200/50";
-            userDiv.innerText = buttonName;
-            chatArea.appendChild(userDiv);
-            
-            // إضافة رد البوت التلقائي الفوري
-            setTimeout(() => {
-                const botDiv = document.createElement('div');
-                botDiv.className = "bg-white p-2.5 rounded-2xl rounded-tr-none max-w-[80%] shadow-sm self-start border border-slate-200/60 transition-all duration-300 transform scale-95";
-                botDiv.innerText = replyText;
-                chatArea.appendChild(botDiv);
-                // عمل سكرول لأسفل الشات تلقائياً
-                chatArea.scrollTop = chatArea.scrollHeight;
-            }, 400);
-        }
-
-        // 4. برمجة أقسام منيو الـ QR (الواجهة الخامسة)
-        function switchMenuCategory(catId) {
-            // إخفاء جميع عناصر الأقسام داخل المنيو
-            const items = document.querySelectorAll('.menu-items');
-            items.forEach(item => item.classList.add('hidden'));
-            
-            // إظهار قسم المأكولات المحدد
-            document.getElementById('cat-' + catId).classList.remove('hidden');
-            
-            // ستايل الأزرار غير النشطة بالمنيو
-            const buttons = document.querySelectorAll('.menu-cat-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-amber-500', 'text-white');
-                btn.classList.add('bg-slate-100', 'text-slate-600');
-            });
-            
-            // تنشيط زر القسم المختار
-            const activeBtn = document.getElementById('btn-cat-' + catId);
-            if(activeBtn) {
-                activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
-                activeBtn.classList.add('bg-amber-500', 'text-white');
-            }
         }
     </script>
 </body>
